@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="movie.css">  <!-- Movie-specific styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Impact&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black; /* Set background to black */
+            color: white; /* Set default text color to white */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: grey; /* Set header background to grey */
+        }
+
+        footer {
+            background-color: grey; /* Set footer background to grey */
+        }
+
+        .description {
+            font-weight: normal;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            color: #ccc; /* Change color for better contrast */
+            font-family: Arial, sans-serif;
+        }
+
+        .movie-section {
+            display: none; /* Hide sections by default */
+        }
+
+        .pagination {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .movie-list {
+            width: 90%;
+            margin: 20px auto;
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .movie-card {
+            background-color: rgb(0, 0, 0);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 200px; /* Set a fixed height for uniformity */
+            object-fit: cover; /* Ensure the image covers the area without stretching */
+        }
+
+        .movie-card h3 {
+            margin: 10px;
+        }
+
+        .movie-card p {
+            margin: 10px;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-grey text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="searchbar d-flex align-items-center">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search movies..." />
+                <button class="btn btn-light" id="searchButton">Search</button>
+                <select id="categorySelect" class="form-control ml-2" style="width: auto;">
+                    <option value="all">All Movies</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="anime">Anime</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="movie-list">
+            <h2 class="text-center my-4">Featured Movies</h2>
+            <div class="container">
+                <div class="row" id="movieContainer">
+                    <div class="col-md-4 movie-card" data-title="Smile 2" data-category="fantasy">
+                        <img src="https://all.web.img.acsta.net/img/96/b9/96b91c8df612fd0033e9f1f9008a5d2d.jpeg/r_500_x" alt="Smile 2" class="img-fluid">
+                        <h3>Smile 2</h3>
+                        <p class="description"></p>
+                        <p><a href="/content/Deadpool&Wolverine2024.html">Read more</a></p>
+                    </div>
+
+                    <div class="col-md-4 movie-card" data-title="Classified (2024)" data-category="fantasy">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOTNjZjg5MjktMzUxNS00MmMyLTgxMTctNjc4Y2U3MzYzYmEwXkEyXkFqcGdeQXVyMTg5ODY4NDM@._V1_.jpg" alt="Classified (2024)" class="img-fluid">
+                        <h3>Classified (2024)</h3>
+                        <p class="description"></p>
+                        <p><a href="/content/Classified(2024).html">Read more</a></p>
+                    </div>
+
+                    <div class="col-md-4 movie-card" data-title="Gladiator II" data-category="fantasy">
+                        <img src="https://cdn.gracza.pl/galeria/mdb/f/-1951891500.jpg" alt="Gladiator II" class="img-fluid">
+                        <h3>Gladiator II</h3>
+                        <p class="description"></p>
+                        <p><a href="/content/GladiatorII.html">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Section -->
+        <section class="movie-list" id="actionSection">
+            <h2 class="text-center my-4">Action Movies</h2>
+            <div class="container movie-section">
+                <div class="row" id="actionMovies">
+                    <div class="col-md-4 movie-card" data-title="Action Movie 1" data-category="action">
+                        <img src="https://phcorner.net/attachments/flyerwiz_1727680096101-png.3138752/" alt="Action Movie 1" class="img-fluid">
+                        <h3>Action Movie 1</h3>
+                        <p class="description"></p>
+                        <p><a href="#">Read more</a></p>
+                    </div>
+                    <!-- More action movies... -->
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="btn btn-light" id="prevAction">Previous</button>
+                <button class="btn btn-light" id="nextAction">Next</button>
+            </div>
+        </section>
+
+        <!-- Fantasy Section -->
+        <section class="movie-list" id="fantasySection">
+            <h2 class="text-center my-4">Fantasy Movies</h2>
+            <div class="container movie-section">
+                <div class="row" id="fantasyMovies">
+                    <div class="col-md-4 movie-card" data-title="Fantasy Movie 1" data-category="fantasy">
+                        <img src="https://phcorner.net/attachments/flyerwiz_1727680096101-png.3138752/" alt="Fantasy Movie 1" class="img-fluid">
+                        <h3>Fantasy Movie 1</h3>
+                        <p class="description"></p>
+                        <p><a href="#">Read more</a></p>
+                    </div>
+                    <!-- More fantasy movies... -->
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="btn btn-light" id="prevFantasy">Previous</button>
+                <button class="btn btn-light" id="nextFantasy">Next</button>
+            </div>
+        </section>
+
+        <!-- Adventure Section -->
+        <section class="movie-list" id="adventureSection">
+            <h2 class="text-center my-4">Adventure Movies</h2>
+            <div class="container movie-section">
+                <div class="row" id="adventureMovies">
+                    <div class="col-md-4 movie-card" data-title="Adventure Movie 1" data-category="adventure">
+                        <img src="https://phcorner.net/attachments/flyerwiz_1727680096101-png.3138752/" alt="Adventure Movie 1" class="img-fluid">
+                        <h3>Adventure Movie 1</h3>
+                        <p class="description"></p>
+                        <p><a href="#">Read more</a></p>
+                    </div>
+                    <!-- More adventure movies... -->
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="btn btn-light" id="prevAdventure">Previous</button>
+                <button class="btn btn-light" id="nextAdventure">Next</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center p-3">
+        <p>&copy; 2024 All&One.com</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="movie.js"></script>  <!-- Movie-specific JavaScript -->
+
+    <script>
+        $(document).ready(function() {
+            // Function to generate description based on title
+            $('.movie-card').each(function() {
+                const title = $(this).find('h3').text(); // Get the movie title from h3
+                const description = generateDescription(title); // Generate description using the title
+                $(this).find('.description').text(description); // Set the generated description
+            });
+
+            // Initialize pagination
+            const itemsPerPage = 3; // Set number of items per page
+            let currentPage = 1;
+
+            function showPage(sectionId, page) {
+                const items = $(`${sectionId} .movie-card`);
+                const totalPages = Math.ceil(items.length / itemsPerPage);
+                items.hide(); // Hide all items
+
+                // Calculate the start and end indexes for the current page
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                // Show only the items for the current page
+                items.slice(start, end).show();
+
+                // Disable/enable buttons based on the current page
+                $(`${sectionId} #prevAction`).prop('disabled', page === 1);
+                $(`${sectionId} #nextAction`).prop('disabled', page === totalPages);
+                $(`${sectionId} #prevFantasy`).prop('disabled', page === 1);
+                $(`${sectionId} #nextFantasy`).prop('disabled', page === totalPages);
+                $(`${sectionId} #prevAdventure`).prop('disabled', page === 1);
+                $(`${sectionId} #nextAdventure`).prop('disabled', page === totalPages);
+            }
+
+            // Show initial pages
+            showPage('#actionSection', currentPage);
+            showPage('#fantasySection', currentPage);
+            showPage('#adventureSection', currentPage);
+
+            // Pagination button handlers
+            $('#nextAction').click(function() {
+                currentPage++;
+                showPage('#actionSection', currentPage);
+            });
+
+            $('#prevAction').click(function() {
+                currentPage--;
+                showPage('#actionSection', currentPage);
+            });
+
+            $('#nextFantasy').click(function() {
+                currentPage++;
+                showPage('#fantasySection', currentPage);
+            });
+
+            $('#prevFantasy').click(function() {
+                currentPage--;
+                showPage('#fantasySection', currentPage);
+            });
+
+            $('#nextAdventure').click(function() {
+                currentPage++;
+                showPage('#adventureSection', currentPage);
+            });
+
+            $('#prevAdventure').click(function() {
+                currentPage--;
+                showPage('#adventureSection', currentPage);
+            });
+        });
+
+        function generateDescription(title) {
+            // Generate a short description based on the title
+            return `Join the thrilling adventure of ${title}, where heroes unite to face extraordinary challenges.`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+header {
+    background-color: grey;
+}
+.video-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin: 20px 0; /* Optional: Add vertical spacing */
+}
+.download-links {
+    margin-top: 20px;
+}

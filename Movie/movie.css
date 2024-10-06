@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Set background to black */
+    color: white; /* Set default text color to white */
+}
+
+.searchbar {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.movie-list {
+    width: 90%;
+    margin: 20px auto;
+    cursor: pointer; /* Show pointer on hover */
+
+}
+
+.movie-card {
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+.movie-card img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.movie-card h3 {
+    margin: 10px;
+}
+
+.movie-card p {
+    margin: 10px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: grey; /* Set footer background to grey */
+}
+
+.toggle-arrow {
+    margin-left: 10px;
+    transition: color 0.2s;
+
+}
+
+.toggle-arrow:hover {
+    color: #007bff; /* Change color on hover */
+}

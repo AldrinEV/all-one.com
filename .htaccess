@@ -1,0 +1,32 @@
+RewriteEngine On
+
+# Disable directory listing
+Options -Indexes
+
+# Redirect requests for "index" to "index.html"
+RewriteRule ^index$ index.html [L]
+
+# Remove .html extension from all other pages
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# Limit HTTP methods
+<Limit GET POST>
+    Order Allow,Deny
+    Allow from all
+</Limit>
+<Limit PUT DELETE>
+    Deny from all
+</Limit>
+
+# Protect sensitive files
+<FilesMatch "\.(ini|config|log|txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "DENY"
+Header set X-XSS-Protection "1; mode=block"
