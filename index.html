@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com 'nonce-<generated_nonce>'; style-src 'self' https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net 'nonce-<generated_nonce>';">
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -17,7 +16,7 @@
                 <li class="nav-item">
                     <div class="searchbar">
                         <input type="text" class="search_input" id="searchInput" placeholder="Search..." />
-                        <i class="bi bi-search search_icon" onclick="toggleSearch()" nonce="<generated_nonce>"></i>
+                        <i class="bi bi-search search_icon" onclick="toggleSearch()" style="font-size: 24px; color: white;"></i>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -60,25 +59,27 @@
             </div>
         </div>
     </div>
+
     <footer class="footer mt-auto py-3" style="background-color: rgba(81, 119, 177, 0.7);">
         <div class="container text-center">
             <h5 class="text-white">Connect with us</h5>
             <div class="social-icons">
                 <a href="https://web.facebook.com/aldrinvirtudazo0425" target="_blank" class="text-white mx-2">
-                    <i class="bi bi-facebook" style="font-size: 24px;"></i>
+                    <i class="bi bi-facebook" style="font-size: 24px; color: white;"></i>
                 </a>
                 <a href="#" class="text-white mx-2" id="discord-link">
-                    <i class="bi bi-discord" style="font-size: 24px;"></i>
+                    <i class="bi bi-discord" style="font-size: 24px; color: white;"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/aldrin-virtudazo-3a592432a/" target="_blank" class="text-white mx-2">
-                    <i class="bi bi-linkedin" style="font-size: 24px;"></i>
+                    <i class="bi bi-linkedin" style="font-size: 24px; color: white;"></i>
                 </a>
             </div>
         </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/script.js" nonce="<generated_nonce>"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
